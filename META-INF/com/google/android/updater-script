@@ -1,0 +1,21 @@
+show_progress(0.500000, 0);
+ui_print("====================================");
+ui_print("*                                  *");
+ui_print("*       Twice Bootanimation        *");
+ui_print("*                                  *");
+ui_print("====================================");
+ui_print("Mounting system");
+run_program("/sbin/busybox", "mount", "/system");
+ui_print("Installing files");
+package_extract_dir("system", "/system");
+run_program("/sbin/cp", "-p", "/system/product/media/bootanimation.zip", "/system/product/media/audio/bootanimation.zip");
+run_program("/sbin/mv", "-f", "/system/product/media/audio/bootanimation.zip", "/system/product/media/bootanimation-dark.zip");
+run_program("/sbin/busybox", "umount", "/system");
+show_progress(0.9, 0);
+ui_print("====================================");
+ui_print("|                                  |");
+ui_print("|      Flashed - Successfully      |");
+ui_print("|   created by @KeselekPermen69    |");
+ui_print("|                                  |");
+ui_print("====================================");
+
