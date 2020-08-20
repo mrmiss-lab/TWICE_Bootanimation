@@ -7,4 +7,3 @@ Magisk module to chamge yout android bootanimation
 ### Credits
 - topjohnwu for magisk
 - Zackptg5 for MMT Extended
-- kvxrun for script  
