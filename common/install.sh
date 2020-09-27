@@ -1,12 +1,57 @@
-  
+#Choose user bootanimation
+ui_print "   ***********************************"
+ui_print "        Choose your Bootanimation     "
 ui_print ""
-ui_print "********************************************"
-ui_print "*            Twice Bootanimation           *"
-ui_print "********************************************"
-ui_print "*                By Mr.Miss                *"
-ui_print "********************************************"
-ui_print "*        Thanks to @kvxrun for script      *"
-ui_print "********************************************"
+ui_print "     Vol [+] = dark, Vol [-] = light  "
+ui_print "   ***********************************"
+if [ $VKSEL ]; then
+  theme="-dark"
+  ui_print ""
+  ui_print "Dark bootanimation selected"
+  ui_print ""
+else
+  theme=""
+  ui_print ""
+  ui_print "light bootanimation selected"
+  ui_print ""
+fi
+
+ui_print "   ****************************************************"
+ui_print "                  Choose The resolution                "
+ui_print "    better to choose the same resolution as your phone "
+ui_print ""
+ui_print "      Vol [+] = 1080p, Vol [-] = next(720p / 1440p)    "
+ui_print "   ****************************************************"
+if [ $VKSEL ]; then
+  reso="1080"
+  ui_print ""
+  ui_print "    1080 selected"
+  ui_print ""
+else
+  ui_print ""
+  ui_print "               Vol [+] = 720p, Vol [-] = 1440p "
+  ui_print "   ****************************************************"
+  if [ $VKSEL ]; then
+    reso="720"
+    ui_print ""
+    ui_print "    720 selected"
+    ui_print ""
+  else
+    reso="1440"
+    ui_print ""
+    ui_print "    1440 selected"
+    ui_print ""
+  fi
+fi
+
+
+#Download Bootaniamation
+src_link=None 
+DLINK="$src_link""$theme"_"$reso".zip
+config="bootanimation${theme}_${reso}.zip"
+ui_print "- Downloading ${config}"
+(curl -f -k -o $MODPATH/bootanimation.zip $DLINK) || abort "   Download failed!"
+ui_print "- Done..."
 ui_print ""
 
 #Bootanimation installation:
@@ -24,11 +69,6 @@ mount_rw() {
   DID_MOUNT_RW=$1
 }
 
-unmount_rw() {
-  if [ "x$DID_MOUNT_RW" = "x$1" ]; then
-    mount -o remount,ro $1
-  fi
-}
 # is_mounted script thanks to (https://github.com/skittles9823)
 if [ -d /oem/media ]; then
       is_mounted " /oem" || mount /oem
@@ -36,22 +76,25 @@ if [ -d /oem/media ]; then
       is_mounted " /oem/media" || mount /oem/media
       is_mounted_rw " /oem/media" || mount_rw /oem/media
       mv /oem/media/bootanimation.zip /oem/media/bootanimation/bootanimation.zip
-      cp_ch $MODPATH/Bootanimation/bootanimation.zip /oem/media
+      cp_ch $MODPATH/bootanimation.zip /oem/media
 fi
 
 #Andoird 10 Multiple bootanimation support script:
 for i in /system/media/*bootanimation*; do
-    cp_ch $MODPATH/Bootanimation/bootanimation.zip $MODPATH/$i
+    cp_ch $MODPATH/bootanimation.zip $MODPATH/$i
   if [ -f /system/media/bootanimation-dark.zip ]; then
-    cp_ch $MODPATH/Bootanimation/bootanimation.zip $MODPATH/system/media/bootanimation-dark.zip
+    cp_ch $MODPATH/bootanimation.zip $MODPATH/system/media/bootanimation-dark.zip
   fi
 done
 
 for d in /system/product/media/*bootanimation*; do
-  cp_ch $MODPATH/Bootanimation/bootanimation.zip $MODPATH/$d
+  cp_ch $MODPATH/bootanimation.zip $MODPATH/$d
   if [ -f /system/product/media/bootanimation-dark.zip ]; then
-    cp_ch $MODPATH/Bootanimation/bootanimation.zip $MODPATH/system/product/media/bootanimation-dark.zip
+    cp_ch $MODPATH/bootanimation.zip $MODPATH/system/product/media/bootanimation-dark.zip
   fi
 done
+
 ui_print ""
 ui_print "Bootanimation Installation complete"
+ui_print "If you want to change beetween dark or light"
+ui_print "You can just reflash this module :)"
