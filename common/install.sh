@@ -4,7 +4,7 @@ ui_print "        Choose your Bootanimation     "
 ui_print ""
 ui_print "     Vol [+] = dark, Vol [-] = light  "
 ui_print "   ***********************************"
-if [ $VKSEL ]; then
+if $VKSEL; then
   theme="-dark"
   ui_print ""
   ui_print "Dark bootanimation selected"
@@ -22,7 +22,7 @@ ui_print "    better to choose the same resolution as your phone "
 ui_print ""
 ui_print "      Vol [+] = 1080p, Vol [-] = next(720p / 1440p)    "
 ui_print "   ****************************************************"
-if [ $VKSEL ]; then
+if $VKSEL; then
   reso="1080"
   ui_print ""
   ui_print "    1080 selected"
@@ -31,7 +31,7 @@ else
   ui_print ""
   ui_print "               Vol [+] = 720p, Vol [-] = 1440p "
   ui_print "   ****************************************************"
-  if [ $VKSEL ]; then
+  if $VKSEL; then
     reso="720"
     ui_print ""
     ui_print "    720 selected"
@@ -44,13 +44,15 @@ else
   fi
 fi
 
+chmod 0755 $MODPATH/curl
 
 #Download Bootaniamation
-src_link=None 
+src_link="https://raw.githubusercontent.com/TwiceOS/vendor_pixelstyle/ten/bootanimation/bootanimation"
 DLINK="$src_link""$theme"_"$reso".zip
 config="bootanimation${theme}_${reso}.zip"
 ui_print "- Downloading ${config}"
-(curl -f -k -o $MODPATH/bootanimation.zip $DLINK) || abort "   Download failed!"
+ui_print $DLINK
+($MODPATH/curl -f -k -o $MODPATH/bootanimation.zip $DLINK) || abort "   Download failed!"
 ui_print "- Done..."
 ui_print ""
 
