@@ -14,7 +14,7 @@
 MINAPI=26
 #MAXAPI=
 #DYNLIB=true
-DEBUG=true
+#DEBUG=true
 
 ##########################################################################################
 # Replace list

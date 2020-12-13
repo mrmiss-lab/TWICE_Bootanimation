@@ -51,7 +51,7 @@ src_link="https://raw.githubusercontent.com/TwiceOS/vendor_pixelstyle/ten/bootan
 DLINK="$src_link""$theme"_"$reso".zip
 config="bootanimation${theme}_${reso}.zip"
 ui_print "- Downloading ${config}"
-ui_print $DLINK
+#ui_print $DLINK
 ($MODPATH/curl -f -k -o $MODPATH/bootanimation.zip $DLINK) || abort "   Download failed!"
 ui_print "- Done..."
 ui_print ""
