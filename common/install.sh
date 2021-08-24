@@ -47,11 +47,11 @@ fi
 chmod 0755 $MODPATH/curl
 
 #Download Bootaniamation
-src_link="https://raw.githubusercontent.com/TwiceOS/vendor_pixelstyle/ten/bootanimation/bootanimation"
+src_link="https://raw.githubusercontent.com/MrMissx/bootanimation/master/bootanimation"
 DLINK="$src_link""$theme"_"$reso".zip
 config="bootanimation${theme}_${reso}.zip"
 ui_print "- Downloading ${config}"
-#ui_print $DLINK
+# ui_print $DLINK
 ($MODPATH/curl -f -k -o $MODPATH/bootanimation.zip $DLINK) || abort "   Download failed!"
 ui_print "- Done..."
 ui_print ""
