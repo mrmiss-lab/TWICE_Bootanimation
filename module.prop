@@ -1,6 +1,7 @@
 id=TWbootanim
 name=TWICE Bootanimation
-version=v3.2
-versionCode=32
+version=v3.3
+versionCode=33
 author=MrMiss
 description=TWICE Bootanimation
+updateJson=https://github.com/Sana-Project/TWICE_Bootanimation/raw/master/update.json
