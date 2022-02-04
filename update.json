@@ -1,6 +1,6 @@
 {
-    "version": "v3.2",
-    "versionCode": 32,
-    "zipUrl": "https://github.com/Sana-Project/TWICE_Bootanimation/releases/download/v3.2/bootanimation.zip",
-    "changelog": "https://github.com/Sana-Project/TWICE_Bootanimation/raw/master/README.md"
+    "version": "v3.3",
+    "versionCode": 33,
+    "zipUrl": "https://github.com/Sana-Project/TWICE_Bootanimation/releases/download/v3.3/TWICE_bootanimation-v3.3.zip",
+    "changelog": "https://raw.githubusercontent.com/Sana-Project/TWICE_Bootanimation/master/changelog.md"
 }
